@@ -1,6 +1,6 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1708576390
-3d_scene.tscn::PackedScene::3469086672813722619::1708576255::0::1::::<><>::uid://c2gjpj5vx4oik::::res://textures/ground_textures/coast_sand_rocks_02_diff_4k.png<>uid://cfqrb50rjby4u::::res://textures/ground_textures/coast_sand_rocks_02_nor_gl_4k.png<>uid://cei7x5l1e8a8k::::res://maple_trees/scene.gltf<>uid://wvp81iurcyj2::::res://textures/ground_textures/coast_sand_rocks_02_rough_4k.png<>uid://cpm058k25rj0m::::res://textures/wall_textures/lambert1_baseColor.png<>uid://b7li2sbljh31i::::res://textures/wall_textures/lambert1_normal.png<>uid://b0nmjn21t2esc::::res://textures/wall_textures/lambert1_metallicRoughness.png
+::res://::1708617349
+3d_scene.tscn::PackedScene::3469086672813722619::1708576560::0::1::::<><>::uid://c2gjpj5vx4oik::::res://textures/ground_textures/coast_sand_rocks_02_diff_4k.png<>uid://cfqrb50rjby4u::::res://textures/ground_textures/coast_sand_rocks_02_nor_gl_4k.png<>uid://cei7x5l1e8a8k::::res://maple_trees/scene.gltf<>uid://wvp81iurcyj2::::res://textures/ground_textures/coast_sand_rocks_02_rough_4k.png<>uid://cpm058k25rj0m::::res://textures/wall_textures/lambert1_baseColor.png<>uid://b7li2sbljh31i::::res://textures/wall_textures/lambert1_normal.png<>uid://b0nmjn21t2esc::::res://textures/wall_textures/lambert1_metallicRoughness.png
 icon.svg::CompressedTexture2D::7655728671898774967::1708375772::1708571573::1::::<><>::
 ::res://maple_trees/::1708575655
 license.txt::TextFile::-1::1708575640::0::1::::<><>::
