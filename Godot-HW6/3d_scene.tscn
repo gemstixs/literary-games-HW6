@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpopl6mnmqng2"]
+
+[ext_resource type="PackedScene" uid="uid://dry3sfivukuo4" path="res://victorian_mansion_hallway/scene.gltf" id="1_smmiy"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_dax51"]
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_yhusy"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.978728, 0.177676, -0.102581, 2.10754e-08, 0.5, 0.866025, 0.205162, -0.847603, 0.489364, 0.988207, 6.13157, -2.6363)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.0066148, 0, 0.999978, 0, 1, 0, -0.999978, 0, -0.0066148, 1.51777, 0.520342, -0.962359)
+
+[node name="floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 2.08165e-12, 2.08165e-12, 0.000864983)
+mesh = SubResource("PlaneMesh_dax51")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor/StaticBody3D"]
+shape = SubResource("HeightMapShape3D_yhusy")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_smmiy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.76095, 2.08165e-12, -1.23506)

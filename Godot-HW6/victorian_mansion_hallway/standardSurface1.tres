@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://rpy0j5ohjiyo"]
+
+[resource]
+resource_name = "standardSurface1"
+cull_mode = 2
+roughness = 0.6
