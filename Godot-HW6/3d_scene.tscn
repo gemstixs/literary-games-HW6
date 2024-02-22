@@ -1,29 +1,86 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpopl6mnmqng2"]
+[gd_scene load_steps=14 format=3 uid="uid://bpopl6mnmqng2"]
 
-[ext_resource type="PackedScene" uid="uid://dry3sfivukuo4" path="res://victorian_mansion_hallway/scene.gltf" id="1_smmiy"]
+[ext_resource type="Texture2D" uid="uid://c2gjpj5vx4oik" path="res://textures/ground_textures/coast_sand_rocks_02_diff_4k.png" id="1_2haqm"]
+[ext_resource type="Texture2D" uid="uid://cfqrb50rjby4u" path="res://textures/ground_textures/coast_sand_rocks_02_nor_gl_4k.png" id="2_v3n2s"]
+[ext_resource type="PackedScene" uid="uid://cei7x5l1e8a8k" path="res://maple_trees/scene.gltf" id="2_v6s8s"]
+[ext_resource type="Texture2D" uid="uid://wvp81iurcyj2" path="res://textures/ground_textures/coast_sand_rocks_02_rough_4k.png" id="3_sep3b"]
+[ext_resource type="Texture2D" uid="uid://cpm058k25rj0m" path="res://textures/wall_textures/lambert1_baseColor.png" id="4_waqtj"]
+[ext_resource type="Texture2D" uid="uid://b7li2sbljh31i" path="res://textures/wall_textures/lambert1_normal.png" id="5_t1k4j"]
+[ext_resource type="Texture2D" uid="uid://b0nmjn21t2esc" path="res://textures/wall_textures/lambert1_metallicRoughness.png" id="6_ito0n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3lhn4"]
+albedo_texture = ExtResource("1_2haqm")
+roughness_texture = ExtResource("3_sep3b")
+normal_enabled = true
+normal_texture = ExtResource("2_v3n2s")
+uv1_scale = Vector3(3, 3, 3)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_dax51"]
+material = SubResource("StandardMaterial3D_3lhn4")
 
 [sub_resource type="HeightMapShape3D" id="HeightMapShape3D_yhusy"]
 
-[node name="Node3D" type="Node3D"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j1ddi"]
+albedo_texture = ExtResource("4_waqtj")
+roughness_texture = ExtResource("6_ito0n")
+normal_enabled = true
+normal_texture = ExtResource("5_t1k4j")
+uv1_scale = Vector3(37, 3, 5)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.978728, 0.177676, -0.102581, 2.10754e-08, 0.5, 0.866025, 0.205162, -0.847603, 0.489364, 0.988207, 6.13157, -2.6363)
+[sub_resource type="BoxMesh" id="BoxMesh_6ds24"]
+material = SubResource("StandardMaterial3D_j1ddi")
+size = Vector3(700, 80, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qw5fp"]
+size = Vector3(300, 100, 20)
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 238.602)
+
+[node name="sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.75033, -0.572498, 0.330532, -0.462208, -0.0968685, 0.881465, -0.472618, -0.814164, -0.337297, 105.764, 289.938, -286.714)
 shadow_enabled = true
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.0066148, 0, 0.999978, 0, 1, 0, -0.999978, 0, -0.0066148, 1.51777, 0.520342, -0.962359)
-
-[node name="floor" type="MeshInstance3D" parent="."]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 2.08165e-12, 2.08165e-12, 0.000864983)
+[node name="ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(300, 0, 0, 0, 300, 0, 0, 0, 300, 2.08165e-12, 2.08165e-12, 0)
 mesh = SubResource("PlaneMesh_dax51")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="floor"]
+[node name="StaticBody3D" type="StaticBody3D" parent="ground"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="floor/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground/StaticBody3D"]
 shape = SubResource("HeightMapShape3D_yhusy")
 
-[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_smmiy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.76095, 2.08165e-12, -1.23506)
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.996308, 0, 0.0858516, 0, 1, 0, -0.0858516, 0, -0.996308, 62.9721, 74.8043, -282.161)
+fov = 47.8
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.983, 34.9682, -78.3777)
+mesh = SubResource("BoxMesh_6ds24")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_qw5fp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(-0.00904063, 0, 0.999959, 0, 1, 0, -0.999959, 0, -0.00904063, -264.519, 0.003479, 350.76)
+mesh = SubResource("BoxMesh_6ds24")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/MeshInstance3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_qw5fp")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("2_v6s8s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96.2745, 2.08165e-12, 13.732)
+
+[node name="Sketchfab_Scene2" parent="." instance=ExtResource("2_v6s8s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.0853, 2.08165e-12, 54.2827)
+
+[node name="Sketchfab_Scene3" parent="." instance=ExtResource("2_v6s8s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.559, -4.47035e-06, 102.363)
+
+[node name="Sketchfab_Scene4" parent="." instance=ExtResource("2_v6s8s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.18207, 3.78538, 168.453)
