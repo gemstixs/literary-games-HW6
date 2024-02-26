@@ -56,6 +56,7 @@ As you begin to climb the staircase, the stone seems to fall apart beneath your 
    The main door, which you left open behind you, slowly closes, the lock clicking into place. 
 + You [stay to the side of the staircase] climb the stairs to the top floor of the manor, keeping close to the banister. There's a hallway to the left, and another to the right.
     ++ [Left] -> left_hallway
+    ++ [Right] -> right_hallway
 * You [rush up the stairs] head straight towards the top floor of the manor. But in your haste, you move away from the bannister. Suddenly, your foot breaks through the stone, and you fall forward on the steps.
    You push yourself up on your hands, and turn your head. Your leg is stuck in the staircase. -> ghost_death
  * You [go back to the door] decide the staircase is too dangerous, and you carefully retreat down the stairs and back to the main hall.
@@ -63,6 +64,7 @@ As you begin to climb the staircase, the stone seems to fall apart beneath your 
     ** [Leave the manor] -> escape_main_door
 = left_hallway 
 You start down the hallway to the left, and you come to a door.
++ [Turn back] -> right_hallway
 + [Open the door] You push open the door, revealing a small room with only a small desk inside. You go towards the desk. -> key_desk
 = key_desk 
  The desk has three drawers, each ornately carved. The left drawer shows a group of mermaids swimming near a ship, the center drawer shows a massive tentacled sea monster, and the third shows a ship crashed on a rocky cliff.
@@ -71,7 +73,7 @@ You start down the hallway to the left, and you come to a door.
 * [Open the shipwreck drawer] There's nothing in the drawer. -> key_desk
 * ->
 You leave the room, and carefully make your way back down the staircase. -> escape_main_door
-+ [Turn back] -> right_hallway
+
 = right_hallway
 You start down the hallway to the right, and you come to a door.
     + [Open the door] You try to push the door open, but it's jammed. You ram your shoulder into it, and the door swings open. Your momentum pushes you into the room-
@@ -79,7 +81,6 @@ You start down the hallway to the right, and you come to a door.
     You're rattled, but you pull yourself to your feet, finding yourself in a pitch black corridor. 
         -> corridor.corridor_intercept
     + [Turn back] Deciding not to open the door, you turn around. -> left_hallway
-   
    
 == corridor ==
 As you walk down the corridor, you think there must be a broken window. A cold wind nips at you, tasting of the sea. As you continue down the dark hallway, the sound of the crashing waves grows louder.
@@ -112,7 +113,6 @@ Fearful of what lurks in the darkness of the corridor, you turn back to the main
        * [Go upstairs] -> upstairs.staircase
        * [Leave the manor] -> escape_main_door
     
-
 == escape_main_door ==
     You stumble towards the main door, and turn the handle the second you reach it. It doesn't open. You turn the handle again. Nothing. It's locked. From the outside. 
     * {upstairs.key_desk} [Try the key] You remember the key you found upstairs. Fumbling, you reach into your pocket. You push the key into the lock, turn it, and nearly sob with relief when the door groans open. 
